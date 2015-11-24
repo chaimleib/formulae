@@ -1,6 +1,6 @@
 # homebrew-formulae
 
-This repo contains recipes for [Homebrew](brew.sh). To use them, run
+This repo contains recipes for [Homebrew](http://brew.sh). To use them, run
 
 ```
 brew tap chaimleib/formulae
