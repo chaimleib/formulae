@@ -20,8 +20,8 @@ class Sphinx208 < Formula
               --disable-dependency-tracking
               --localstatedir=#{var}]
 
-    args << "--{#{build.with? "mysql" ? "with" : "without"}-mysql"
-    args << "--{#{build.with? "postgresql" ? "with" : "without"}-pgsql"
+    args << "--#{build.with? "mysql" ? "with" : "without"}-mysql"
+    args << "--#{build.with? "postgresql" ? "with" : "without"}-pgsql"
 
     system "./configure", *args
     system "make install"
