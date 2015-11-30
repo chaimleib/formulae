@@ -3,7 +3,7 @@ require "formula"
 class Sphinx208 < Formula
   homepage "http://www.sphinxsearch.com"
   url "http://sphinxsearch.com/files/sphinx-2.0.8-release.tar.gz"
-  sha1 "a110e2736d34bb418e30a234fe13daa79a727df6"
+  sha256 "bd699bf34635558e4d9d4d8bdcf5fcdd9c2e8f6c614824bec793b0010fa6cda3"
 
   option "mysql", "Force compiling against MySQL"
   option "pgsql", "Force compiling against PostgreSQL"
