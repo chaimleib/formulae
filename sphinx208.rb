@@ -10,8 +10,8 @@ class Sphinx208 < Formula
   deprecated_option "mysql" => "with-mysql"
   deprecated_option "pgsql" => "with-postgresql"
 
-  depends_on :mysql if build.with? "mysql"
-  depends_on :postgresql if build.with? "postgresql"
+  depends_on :mysql => :optional
+  depends_on :postgresql => :optional
 
   conflicts_with "sphinx"
 
@@ -24,7 +24,7 @@ class Sphinx208 < Formula
     args << "--#{build.with?("postgresql") ? "with" : "without"}-pgsql"
 
     system "./configure", *args
-    system "make install"
+    system "make", "install"
   end
 
   def caveats; <<-EOS.undent
