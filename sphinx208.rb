@@ -1,24 +1,24 @@
-require 'formula'
+require "formula"
 
 class Sphinx208 < Formula
-  homepage 'http://www.sphinxsearch.com'
-  url 'http://sphinxsearch.com/files/sphinx-2.0.8-release.tar.gz'
-  sha1 'a110e2736d34bb418e30a234fe13daa79a727df6'
+  homepage "http://www.sphinxsearch.com"
+  url "http://sphinxsearch.com/files/sphinx-2.0.8-release.tar.gz"
+  sha1 "a110e2736d34bb418e30a234fe13daa79a727df6"
 
-  option 'mysql', 'Force compiling against MySQL'
-  option 'pgsql', 'Force compiling against PostgreSQL'
+  option "mysql", "Force compiling against MySQL"
+  option "pgsql", "Force compiling against PostgreSQL"
 
-  depends_on :mysql if build.include? 'mysql'
-  depends_on :postgresql if build.include? 'pgsql'
+  depends_on :mysql if build.include? "mysql"
+  depends_on :postgresql if build.include? "pgsql"
 
-  conflicts_with 'sphinx'
+  conflicts_with "sphinx"
 
   def install
     args = %W[--prefix=#{prefix}
               --disable-dependency-tracking
               --localstatedir=#{var}]
 
-    %w{mysql pgsql}.each do |db|
+    %w[mysql pgsql].each do |db|
       if build.include? db
         args << "--with-#{db}"
       else
