@@ -5,7 +5,7 @@ class Sphinx208 < Formula
   sha256 "bd699bf34635558e4d9d4d8bdcf5fcdd9c2e8f6c614824bec793b0010fa6cda3"
 
   option "with-mysql", "Force compiling against MySQL"
-  option "with-pgsql", "Force compiling against PostgreSQL"
+  option "with-postgresql", "Force compiling against PostgreSQL"
 
   deprecated_option "mysql" => "with-mysql"
   deprecated_option "pgsql" => "with-postgresql"
