@@ -47,10 +47,5 @@ class Sphinx208 < Formula
 
   test do
     assert_match /#{version}/, shell_output("#{bin}/searchd -h")
-
-    # Files for test
-    prefix.install "api/test.php", "test/test.php"
-    prefix.install "#{etc}/example.sql", "test/example.sql"
-    prefix.install "#{etc}/sphinx.conf.dist", "test/sphinx.conf"
   end
 end
