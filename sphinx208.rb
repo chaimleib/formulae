@@ -7,13 +7,10 @@ class Sphinx208 < Formula
   option "with-mysql", "Force compiling against MySQL"
   option "with-postgresql", "Force compiling against PostgreSQL"
 
-  deprecated_option "mysql" => "with-mysql"
-  deprecated_option "pgsql" => "with-postgresql"
-
   depends_on :mysql => :optional
   depends_on :postgresql => :optional
 
-  conflicts_with "sphinx"
+  conflicts_with "sphinx", :because => "differing version of same formula"
 
   def install
     args = %W[--prefix=#{prefix}
