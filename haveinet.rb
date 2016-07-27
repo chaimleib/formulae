@@ -1,10 +1,11 @@
 class Haveinet < Formula
   desc "Tests whether the internet is reachable"
   homepage "https://github.com/chaimleib/haveinet"
-  url "https://github.com/chaimleib/haveinet/archive/0.1.0.tar.gz"
-  sha256 "ba7062b0fc224ddda2844c138fa631883d5ada782d6886e1f61815a5b2806d02"
+  url "https://github.com/chaimleib/haveinet/archive/0.2.0.tar.gz"
+  sha256 "7eb17e966fed3a65694d989e6e50a878470c9d8df6c51f46f3922126f0b03548"
 
   def install
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
