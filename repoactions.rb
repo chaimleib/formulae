@@ -1,13 +1,14 @@
 class Repoactions < Formula
   desc "Run a script whenever you enter a git repo"
   homepage "https://github.com/chaimleib/repoactions"
-  url "https://github.com/chaimleib/repoactions/archive/v0.0.5.tar.gz"
-  sha256 "e3c58e30cddd3baf0ba2072dad44f4954612bce741347aa68b6828cfe08f5fa1"
+  url "https://github.com/chaimleib/repoactions/archive/v0.0.6.tar.gz"
+  sha256 "e8fa0507c3548df8d3b415d4ce1cef158e7e7c97b5a1caae10b250c675929376"
   option "with-rc=", "Specify where to inject login setup (default: ~/.profile)"
 
   def install
     args = ["--prefix=#{prefix}"]
-    args << "--with-rc=#{rc}" if build.with? "rc"
+    rc = ARGV.value("with-rc")
+    args << "--with-rc=#{rc}" if rc
     system "./configure", *args
     system "make", "install"
   end
