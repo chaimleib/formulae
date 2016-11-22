@@ -1,8 +1,8 @@
 class Repoactions < Formula
   desc "Run a script whenever you enter a git repo"
   homepage "https://github.com/chaimleib/repoactions"
-  url "https://github.com/chaimleib/repoactions/archive/v0.0.6.tar.gz"
-  sha256 "e8fa0507c3548df8d3b415d4ce1cef158e7e7c97b5a1caae10b250c675929376"
+  url "https://github.com/chaimleib/repoactions/archive/v0.0.7.tar.gz"
+  sha256 "4a1c270ffcb1e5c4ed46f9785ad5bb7838b5dcde2be77c17da7ffc6c8ec16082"
   option "with-rc=", "Specify where to inject login setup (default: ~/.profile)"
 
   def install
