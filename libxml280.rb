@@ -6,11 +6,6 @@ class Libxml280 < Formula
 
   keg_only :provided_by_osx
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
-
   option :universal
   option "with-python", "Compile the libxml2 Python 2.x modules"
 
