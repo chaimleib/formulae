@@ -13,14 +13,19 @@ class Repoactions < Formula
   end
 
   def caveats; <<-EOS.undent
-    Some additional setup is required to enable repoactions. Add the following
-    to the end of your desired shell configuration file (like ~/.bashrc):
+    Some additional setup is required to enable repoactions.
+
+    ## bash ##
+    Add the following to the end of ~/.bashrc, then start a new shell session:
 
         PROMPT_COMMAND='eval "\$(repoactions -e)";'"\$PROMPT_COMMAND"
         export PROMPT_COMMAND
 
-    Then, to enable repoactions in your current shell, run those same two
-    commands in your current environment.
+    ## zsh ##
+    Add the following to the end of ~/.zshrc, then start a new shell session:
+
+        precmd() { source <(repoactions -e) }
+
   EOS
   end
 
