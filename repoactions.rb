@@ -1,19 +1,30 @@
 class Repoactions < Formula
   desc "Run a script whenever you enter a git repo"
   homepage "https://github.com/chaimleib/repoactions"
-  url "https://github.com/chaimleib/repoactions/archive/v0.0.10.tar.gz"
-  sha256 "db389935887288ca5d57c75f0b705f73702f86fdc97d0d79f60fe1769e9c3443"
-  option "with-rc=", "Specify where to inject login setup (default: ~/.profile)"
+  url "https://github.com/chaimleib/repoactions/archive/v0.1.0.tar.gz"
+  sha256 "00c9bfcd06c014751ed6921949e859e792d196ad867dc0db7606410858d39e26"
 
   def install
-    args = ["--prefix=#{prefix}"]
-    rc = ARGV.value("with-rc")
-    args << "--with-rc=#{rc}" if rc
+    # blank --with-rc to prevent the installer from trying to modify forbidden
+    # files outside the formula dir
+    args = ["--prefix=#{prefix}", "--with-rc="]
     system "./configure", *args
     system "make", "install"
   end
-  
+
+  def caveats; <<-EOS.undent
+    Some additional setup is required to enable repoactions. Add the following
+    to the end of your desired shell configuration file (like ~/.bashrc):
+
+        PROMPT_COMMAND='eval "\$(repoactions -e)";'"\$PROMPT_COMMAND"
+        export PROMPT_COMMAND
+
+    Then, to enable repoactions in your current shell, run those same two
+    commands in your current environment.
+  EOS
+  end
+
   test do
-    assert_match /#{version}/, shell_output("#{bin}/show_repoactions -v")
+    assert_match /#{version}/, shell_output("#{bin}/repoactions -v")
   end
 end
