@@ -1,8 +1,8 @@
 class Repoactions < Formula
   desc "Run a script whenever you enter a git repo"
   homepage "https://github.com/chaimleib/repoactions"
-  url "https://github.com/chaimleib/repoactions/archive/v0.1.0.tar.gz"
-  sha256 "00c9bfcd06c014751ed6921949e859e792d196ad867dc0db7606410858d39e26"
+  url "https://github.com/chaimleib/repoactions/archive/v0.2.1.tar.gz"
+  sha256 "dd1446d5f4a26f39039f9e126e5d842a9f835173b94487d369573ef8924c7bb5"
 
   def install
     # blank --with-rc to prevent the installer from trying to modify forbidden
