@@ -1,8 +1,8 @@
 class Repoactions < Formula
   desc "Run a script whenever you enter a git repo"
   homepage "https://github.com/chaimleib/repoactions"
-  url "https://github.com/chaimleib/repoactions/archive/v0.3.2.tar.gz"
-  sha256 "4146b24001b7380648973ab385bb47582ded1b4dbb18b9665e46cd2a8e8235f7"
+  url "https://github.com/chaimleib/repoactions/archive/v0.3.3.tar.gz"
+  sha256 "3c59b74623aa047bf8ce96a5d0f9ca1b88d535b40d1bda7a80dfc207dbb93319"
 
   def install
     # blank --with-rc to prevent the installer from trying to modify forbidden
@@ -18,9 +18,9 @@ class Repoactions < Formula
     ## bash ##
     Add the following to the end of ~/.bashrc, then start a new shell session:
 
-        sep=
-        [[ -n "\$PROMPT_COMMAND" ]] && [[ "\$PROMPT_COMMAND" != *; ]] && sep=';'
-        PROMPT_COMMAND="\${PROMPT_COMMAND}\${sep}"'eval "\$(repoactions -e)"'
+        [[ -n "$PROMPT_COMMAND" ]] && [[ "$PROMPT_COMMAND" != *';' ]] &&
+          PROMPT_COMMAND="$PROMPT_COMMAND;"
+        PROMPT_COMMAND="$PROMPT_COMMAND"'eval "$(repoactions -e)"'
         export PROMPT_COMMAND
 
     ## zsh ##
